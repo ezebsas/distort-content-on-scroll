@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Distort Content On Scroll</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="content">
+    <section class="distort">
+      <div>
+        <img src="img-one.jpg" alt="">
+        <h1>Boundary supply</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+      <div>
+        <img src="img-two.jpg" alt="">
+        <h1>Runway Three</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+      <div>
+        <img src="img-three.jpg" alt="">
+        <h1>Waste Matters</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </section>
+  </div>
+  <script>
+    const content = document.querySelector("section");
+    let currentPos = window.pageYOffset;
+
+    const callDistort = function () {
+      const newPos = window.pageYOffset;
+      const diff = newPos - currentPos;
+      const speed = diff * 0.35;
+
+      content.style.transform = "skewY(" + speed + "deg)";
+      currentPos = newPos;
+      requestAnimationFrame(callDistort);
+    }
+
+    callDistort();
+  </script>
+</body>
+
+</html>
